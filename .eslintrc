@@ -1,0 +1,50 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/camelcase": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/no-find-dom-node": "warn",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [">", "}"]
+      }
+    ],
+    "prettier/prettier": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js", "src/**/*.jsx"],
+      "parserOptions": {
+        "project": ["./tsconfig.json", "./src/workers/tsconfig.json"]
+      }
+    },
+    {
+      "files": ["__jest__/**/*.js", "config/**/*.js", "*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

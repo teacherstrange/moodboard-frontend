@@ -1,0 +1,41 @@
+{
+  "name": "moodboard-front",
+  "description": "",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "horus-react-scripts dev",
+    "build": "horus-react-scripts build",
+    "eject": "horus-react-scripts eject",
+    "test": "horus-react-scripts test",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "prelint:fix": "prettier --write src/**/*.{ts,tsx,js,json,scss,mdx}",
+    "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
+    "typecheck": "tsc --noEmit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run typecheck"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.{ts,tsx,js,json,scss,mdx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "last 2 version",
+    ">1%",
+    "not dead"
+  ],
+  "dependencies": {
+    "horus-react-scripts": "file:/Users/mustakadem/Documents/lab/moodboard-front",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
